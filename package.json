@@ -8,8 +8,8 @@
   "main": "js/index.js",
   "scripts": {
     "prestart": "browserify . -o ./bundle.js",
-	"start": "st -p 1026",
-	"stop": "kill $(ps x | awk '/st [-]p 1026/ {print $1}')"
+    "start": "st -p 1026 &",
+    "stop": "kill $(ps x | awk '/st [-]p 1026/ {print $1}')",
     "watch": "watchify . -o ./bundle.js"
   },
   "private": true,
