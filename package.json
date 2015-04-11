@@ -10,6 +10,7 @@
     "prestart": "browserify . -o ./bundle.js",
     "start": "st -p 1026 -i 'index.html' &",
     "stop": "kill $(ps x | awk '/st [-]p 1026/ {print $1}') || echo ''",
+    "running": "ps x | awk '/st [-]p 1026/ {print}'",
     "watch": "watchify . -o ./bundle.js"
   },
   "private": true,
