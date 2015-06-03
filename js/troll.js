@@ -10,6 +10,7 @@ var cursorRepeatOpts = {
 }
 
 module.exports = function troll(text) {
+	init()
 	moveCursorToInput(function () {
 		clickInput()
 		typeInput(text, function () {
@@ -21,7 +22,7 @@ module.exports = function troll(text) {
 }
 
 function moveCursorToInput(cb) {
-	var TOP = [0, 190]
+	var TOP = [0, 120]
 	var LEFT = [0, -190]
 	var VW = [0, 50]
 
@@ -53,7 +54,7 @@ function typeInput(text, cb) {
 }
 
 function moveCursorToSearchButton(cb) {
-	var LEFT = [-190, 180]
+	var LEFT = [-190, 300]
 
 	var cursor = cursorElement()
 
@@ -69,7 +70,10 @@ function moveCursorToSearchButton(cb) {
 	}
 }
 
-function clickSearchButton(text) {
+function init() {
 	window.location.replace(window.location.href + '#') // If you go 'back' to this page, it won't troll you again.
+}
+
+function clickSearchButton(text) {
 	window.location.assign('https://npmjs.com/search?q=' + text)
 }

@@ -28,7 +28,16 @@ nav {
 #logo {
 	position: relative;
 	vertical-align: top;
-	width: 200px;
+	width: 140px;
+}
+
+#copyable {
+	width: 300px;
+}
+
+#front-page-container {
+	overflow: hidden;
+	height: calc(100vh - 197px);
 }
 
 #cursor {
@@ -42,7 +51,7 @@ nav {
 	border-width: 1px;
 	border-color: #bbb;
 	font-size: 18px;
-	width: 400px;
+	width: 550px;
 	outline: 0;
 }
 

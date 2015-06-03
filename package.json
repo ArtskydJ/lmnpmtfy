@@ -15,7 +15,7 @@
   },
   "private": true,
   "dependencies": {
-    "range-interval": "0.0.1"
+    "range-interval": "^1.0.0"
   },
   "devDependencies": {}
 }
