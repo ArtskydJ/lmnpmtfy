@@ -31,8 +31,12 @@ nav {
 	width: 140px;
 }
 
+#copyable-div {
+	font-size: 14pt;
+}
+
 #copyable {
-	width: 300px;
+	width: 380px;
 }
 
 #front-page-container {
