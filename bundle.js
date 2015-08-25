@@ -1,4 +1,4 @@
-(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({"C:\\Users\\Michael\\AppData\\Roaming\\npm\\node_modules\\watchify\\node_modules\\browserify\\node_modules\\querystring-es3\\decode.js":[function(require,module,exports){
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -84,7 +84,7 @@ var isArray = Array.isArray || function (xs) {
   return Object.prototype.toString.call(xs) === '[object Array]';
 };
 
-},{}],"C:\\Users\\Michael\\AppData\\Roaming\\npm\\node_modules\\watchify\\node_modules\\browserify\\node_modules\\querystring-es3\\encode.js":[function(require,module,exports){
+},{}],2:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -171,20 +171,20 @@ var objectKeys = Object.keys || function (obj) {
   return res;
 };
 
-},{}],"C:\\Users\\Michael\\AppData\\Roaming\\npm\\node_modules\\watchify\\node_modules\\browserify\\node_modules\\querystring-es3\\index.js":[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 'use strict';
 
 exports.decode = exports.parse = require('./decode');
 exports.encode = exports.stringify = require('./encode');
 
-},{"./decode":"C:\\Users\\Michael\\AppData\\Roaming\\npm\\node_modules\\watchify\\node_modules\\browserify\\node_modules\\querystring-es3\\decode.js","./encode":"C:\\Users\\Michael\\AppData\\Roaming\\npm\\node_modules\\watchify\\node_modules\\browserify\\node_modules\\querystring-es3\\encode.js"}],"C:\\Users\\Michael\\Github\\javascript\\lmnpmtfy.com\\js\\calculate.js":[function(require,module,exports){
+},{"./decode":1,"./encode":2}],4:[function(require,module,exports){
 module.exports = function calculate(fraction, range) {
 	var diff = range[1] - range[0]
 	var part = diff * fraction
 	return String(Math.round(range[0] + part))
 }
 
-},{}],"C:\\Users\\Michael\\Github\\javascript\\lmnpmtfy.com\\js\\element-copyable.js":[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 module.exports = function copyableElement() {
 	var copyable = document.getElementById('copyable')
 	if (!copyable) {
@@ -201,19 +201,19 @@ module.exports = function copyableElement() {
 	return copyable
 }
 
-},{}],"C:\\Users\\Michael\\Github\\javascript\\lmnpmtfy.com\\js\\element-cursor.js":[function(require,module,exports){
+},{}],6:[function(require,module,exports){
 module.exports = function cursorElement() {
 	var cursor = document.getElementById('cursor')
 	if (!cursor) {
 		var div = document.createElement('div')
-		div.innerHTML = '<img id="cursor" src="/cursor.png"></img>'
+		div.innerHTML = '<img id="cursor" src="./img/cursor.png"></img>'
 		document.body.appendChild(div)
 		cursor = document.getElementById('cursor')
 	}
 	return cursor
 }
 
-},{}],"C:\\Users\\Michael\\Github\\javascript\\lmnpmtfy.com\\js\\init.js":[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 var qs = require('querystring')
 
 function setup() {
@@ -225,19 +225,19 @@ function setup() {
 
 module.exports = setup
 
-},{"querystring":"C:\\Users\\Michael\\AppData\\Roaming\\npm\\node_modules\\watchify\\node_modules\\browserify\\node_modules\\querystring-es3\\index.js"}],"C:\\Users\\Michael\\Github\\javascript\\lmnpmtfy.com\\js\\kill-event.js":[function(require,module,exports){
+},{"querystring":3}],8:[function(require,module,exports){
 module.exports = function killEvent(ev) {
 	ev.stopPropagation()
 	ev.preventDefault()
 }
 
-},{}],"C:\\Users\\Michael\\Github\\javascript\\lmnpmtfy.com\\js\\select-all.js":[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 module.exports = function selectAll(element) {
 	element.selectionStart = 0
 	element.selectionEnd = element.value.length
 }
 
-},{}],"C:\\Users\\Michael\\Github\\javascript\\lmnpmtfy.com\\js\\troll.js":[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 var rangeInterval = require('range-interval')
 var cursorElement = require('./element-cursor.js')
 var calculate = require('./calculate.js')
@@ -318,7 +318,7 @@ function clickSearchButton(text) {
 	window.location.assign('https://npmjs.com/search?q=' + text)
 }
 
-},{"./calculate.js":"C:\\Users\\Michael\\Github\\javascript\\lmnpmtfy.com\\js\\calculate.js","./element-cursor.js":"C:\\Users\\Michael\\Github\\javascript\\lmnpmtfy.com\\js\\element-cursor.js","range-interval":"C:\\Users\\Michael\\Github\\javascript\\lmnpmtfy.com\\node_modules\\range-interval\\index.js"}],"C:\\Users\\Michael\\Github\\javascript\\lmnpmtfy.com\\js\\user-input.js":[function(require,module,exports){
+},{"./calculate.js":4,"./element-cursor.js":6,"range-interval":12}],11:[function(require,module,exports){
 var qs = require('querystring')
 var copyableElement = require('./element-copyable.js')
 var killEvent = require('./kill-event.js')
@@ -342,7 +342,7 @@ function userInput() {
 
 module.exports = userInput
 
-},{"./element-copyable.js":"C:\\Users\\Michael\\Github\\javascript\\lmnpmtfy.com\\js\\element-copyable.js","./kill-event.js":"C:\\Users\\Michael\\Github\\javascript\\lmnpmtfy.com\\js\\kill-event.js","./select-all.js":"C:\\Users\\Michael\\Github\\javascript\\lmnpmtfy.com\\js\\select-all.js","querystring":"C:\\Users\\Michael\\AppData\\Roaming\\npm\\node_modules\\watchify\\node_modules\\browserify\\node_modules\\querystring-es3\\index.js"}],"C:\\Users\\Michael\\Github\\javascript\\lmnpmtfy.com\\node_modules\\range-interval\\index.js":[function(require,module,exports){
+},{"./element-copyable.js":5,"./kill-event.js":8,"./select-all.js":9,"querystring":3}],12:[function(require,module,exports){
 module.exports = function repeatDelay(opts, each, cb) {
 	if (!opts || typeof opts !== 'object') throw new TypeError('Expected options to be an object.')
 	if (typeof opts.interval !== 'number') throw new TypeError('Expected options.interval to be a number.')
@@ -362,7 +362,7 @@ module.exports = function repeatDelay(opts, each, cb) {
 	}
 }
 
-},{}],"C:\\Users\\Michael\\Github\\javascript\\lmnpmtfy.com":[function(require,module,exports){
+},{}],13:[function(require,module,exports){
 var init = require('./init.js')
 var userInput = require('./user-input.js')
 var troll = require('./troll.js')
@@ -371,4 +371,4 @@ var text = init()
 if (text) troll(text)
 else userInput()
 
-},{"./init.js":"C:\\Users\\Michael\\Github\\javascript\\lmnpmtfy.com\\js\\init.js","./troll.js":"C:\\Users\\Michael\\Github\\javascript\\lmnpmtfy.com\\js\\troll.js","./user-input.js":"C:\\Users\\Michael\\Github\\javascript\\lmnpmtfy.com\\js\\user-input.js"}]},{},["C:\\Users\\Michael\\Github\\javascript\\lmnpmtfy.com"]);
+},{"./init.js":7,"./troll.js":10,"./user-input.js":11}]},{},[13]);
