@@ -59,7 +59,7 @@ nav {
 	outline: 0;
 }
 
-#site-search-text:hover #site-search-text.hover {
+#site-search-text:hover, #site-search-text.hover {
 	border-color: #000;
 }
 
@@ -81,8 +81,7 @@ nav {
 	background-size: 16px 16px;
 }
 
-#site-search-submit:hover #site-search-submit.hover {
-	/*border: 1px solid #ae2e2d;*/
+#site-search-submit:hover, #site-search-submit.hover {
 	background: #cb3837 url("./img/ico-search-hover.svg") no-repeat 50% 50%;
 	background-size: 16px 16px;
 }
