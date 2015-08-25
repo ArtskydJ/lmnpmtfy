@@ -63,8 +63,6 @@ nav {
 	border-color: #000;
 }
 
-
-
 #site-search-submit {
 	margin-top: 0;
 	margin-left: -100px;
@@ -79,17 +77,12 @@ nav {
 	border-left: 1px solid rgba(0,0,0,0.2);
 	border-radius: 1px;
 
-	background: url("./ico-search.svg") no-repeat 50% 50%;
-	background-size: 16px 16px;
-}
-#site-search-submit:hover {
-	/*border: 1px solid #ae2e2d;*/
-	background: #cb3837 url("./ico-search-hover.svg") no-repeat 50% 50%;
+	background: url("./img/ico-search.svg") no-repeat 50% 50%;
 	background-size: 16px 16px;
 }
 
-#site-search-submit.hover {
+#site-search-submit:hover #site-search-submit.hover {
 	/*border: 1px solid #ae2e2d;*/
-	background: #cb3837 url("./ico-search-hover.svg") no-repeat 50% 50%;
+	background: #cb3837 url("./img/ico-search-hover.svg") no-repeat 50% 50%;
 	background-size: 16px 16px;
 }
