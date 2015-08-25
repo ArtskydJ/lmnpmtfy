@@ -7,15 +7,16 @@
   },
   "main": "js/index.js",
   "scripts": {
-    "prestart": "browserify . -o ./bundle.js",
-    "start": "nohup ecstatic -p 1026 &",
-    "stop": "kill $(ps x | awk '/ecstatic [-]p 1026/ {print $1}') || echo ''",
-    "running": "ps x | awk '/ecstatic [-]p 1026/ {print}'",
-    "watch": "watchify . -o ./bundle.js"
+    "build": "browserify . | uglifyjs - ./bundle.js",
+    "watch": "watchify . -d -o ./bundle.js"
   },
   "private": true,
   "dependencies": {
     "range-interval": "^1.0.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "browserify": "^11.0.1",
+    "uglify-js": "^2.4.24",
+    "watchify": "^3.3.1"
+  }
 }
