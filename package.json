@@ -7,7 +7,7 @@
   },
   "main": "js/index.js",
   "scripts": {
-    "build": "browserify . | uglifyjs - ./bundle.js",
+    "build": "browserify . | uglifyjs - -m -o ./bundle.js",
     "watch": "watchify . -d -o ./bundle.js"
   },
   "private": true,
