@@ -1,6 +1,7 @@
 body {
 	margin: 0px;
 	text-align: center;
+	min-width: 1140px;
 }
 
 nav {
@@ -23,6 +24,7 @@ nav {
 
 	font-family: 'Source Sans Pro', 'Lucida Grande', sans-serif;
 	font-size: 24px;
+	min-width: 950px;
 }
 
 #logo {
@@ -40,8 +42,8 @@ nav {
 }
 
 #front-page-container {
-	overflow: hidden;
-	height: calc(100vh - 197px);
+	overflow-y: hidden;
+	height: calc(100vh - 141px);
 }
 
 #cursor {
