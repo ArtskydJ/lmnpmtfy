@@ -1,7 +1,28 @@
-var init = require('./init.js')
-var userInput = require('./user-input.js')
 var troll = require('./troll.js')
+var qs = require('querystring')
+var killEvent = require('./kill-event.js')
+var selectAll = require('./select-all.js')
 
-var text = init()
-if (text) troll(text)
-else userInput()
+var siteSearchText = document.getElementById('site-search-text')
+var siteSearchForm = document.getElementById('site-search-form')
+
+var hashExists = /#/.test(window.location.href)
+var query = window.location.search.slice(1)
+
+var searchText = qs.parse(query).q
+if (!hashExists && searchText) {
+	siteSearchText.value = ''
+	troll(searchText)
+} else {
+	siteSearchText.value = searchText || ''
+
+	siteSearchForm.onsubmit = function onsubmit(ev) {
+		killEvent(ev)
+
+		var path = window.location.origin + window.location.pathname
+		if (siteSearchText.value.indexOf('/?q=') === -1) {
+			siteSearchText.value = path.replace(/\/?$/, '/?') + qs.stringify({ q: siteSearchText.value })
+		}
+		selectAll(siteSearchText)
+	}
+}

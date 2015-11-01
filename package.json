@@ -12,7 +12,8 @@
   },
   "private": true,
   "dependencies": {
-    "range-interval": "^1.0.0"
+    "range-interval": "^1.0.0",
+    "xtend": "^4.0.0"
   },
   "devDependencies": {
     "browserify": "^11.0.1",
