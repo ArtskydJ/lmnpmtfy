@@ -1,6 +1,7 @@
 body {
 	margin: 0px;
 	min-width: 800px;
+	font-family: 'Source Sans Pro', 'Lucida Grande', 'Arial Narrow', sans-serif;
 }
 
 nav {
@@ -20,8 +21,8 @@ header {
 	background: rgba(0,0,0,0.08);
 	border-bottom: 1px solid #d3d3d3;
 
-	font-family: 'Source Sans Pro', 'Lucida Grande', sans-serif;
 	font-size: 24px;
+	font-weight: 300;
 	min-width: 600px;
 }
 
