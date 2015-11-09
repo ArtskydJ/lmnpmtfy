@@ -65,6 +65,7 @@ header {
 	border-radius: 2px;
 	border-width: 1px;
 	border-color: #bbb;
+	font-family: 'Source Sans Pro', 'Lucida Grande', 'Arial Narrow', sans-serif;
 	font-size: 18px;
 	outline: 0;
 }
