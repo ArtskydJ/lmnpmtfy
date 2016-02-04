@@ -2,7 +2,7 @@ var rangeInterval = require('range-interval')
 var cursorElement = require('./element-cursor.js')
 var calculate = require('./calculate.js')
 
-var siteSearchText = document.getElementById('site-search-text')
+var siteSearch = document.getElementById('site-search')
 var siteSearchSubmit = document.getElementById('site-search-submit')
 
 var cursorRepeatOpts = {
@@ -33,8 +33,8 @@ function moveCursorToInput(cb) {
 }
 
 function clickInput() {
-	siteSearchText.focus()
-	siteSearchText.className = 'hover' // This doesn't really show up...
+	siteSearch.focus()
+	siteSearch.className = 'hover' // This doesn't really show up...
 }
 
 function typeInput(text, cb) {
@@ -44,7 +44,7 @@ function typeInput(text, cb) {
 		step: 1,
 		interval: 200
 	}, function stepInput(index) {
-		siteSearchText.value = text.slice(0, index)
+		siteSearch.value = text.slice(0, index)
 	}, cb)
 }
 
