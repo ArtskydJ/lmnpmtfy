@@ -50,7 +50,7 @@ function typeInput(text, cb) {
 
 function moveCursorToSearchButton(cb) {
 	var next = calculate(cursorElement(), {
-		leftPx: [ 0, -140 ],
+		leftPx: [ 0, -80 ],
 		leftVw: [ 50, 100 ]
 	})
 
@@ -58,7 +58,7 @@ function moveCursorToSearchButton(cb) {
 
 	function stepCursor(fraction) {
 		next(fraction)
-		if (fraction > 0.9) {
+		if (fraction > 0.95) {
 			siteSearchSubmit.className = 'hover'
 		}
 	}
