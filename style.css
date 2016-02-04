@@ -1,7 +1,16 @@
+@font-face {
+	font-family: 'Source Sans Pro';
+	font-style: normal;
+	font-weight: 300;
+	src: local('Source Sans Pro Light'), local('SourceSansPro-Light'), url(https://fonts.gstatic.com/s/sourcesanspro/v9/toadOcfmlt9b38dHJxOBGD_j0nMiB9fPhg_k1wdK2h0.woff2) format('woff2');
+}
+
 body {
+	font-family: 'Source Sans Pro', 'Lucida Grande', sans-serif;
+	letter-spacing: -0.03em;
 	margin: 0px;
 	min-width: 800px;
-	font-family: 'Source Sans Pro', 'Lucida Grande', 'Arial Narrow', sans-serif;
+	font-weight: 300;
 }
 
 nav {
@@ -16,21 +25,25 @@ nav {
 	overflow: hidden;
 }
 
-header {
+body>header {
 	padding: 14px 20px 10px;
-	background: rgba(0,0,0,0.08);
 	border-bottom: 1px solid #d3d3d3;
-
+	background: rgba(0,0,0,0.08);
+	display: flex;
 	font-size: 24px;
-	font-weight: 300;
 	min-width: 600px;
+	-webkit-align-items: center;
+	align-items: center;
 }
 
 #npm-logo {
 	position: relative;
-	vertical-align: top;
 	width: 125px;
 	height: 49px;
+}
+
+.lmtfy {
+	padding-bottom: 2px;
 }
 
 #front-page-container {
@@ -38,53 +51,72 @@ header {
 	overflow-y: hidden;
 	height: calc(100vh - 135px);
 	min-width: 800px;
+	width:100%;
 	text-align: center;
 }
 
-@media screen and (min-width: 801px) {
-	#front-page-container > img { max-width: 100%; }
-	#site-search-text { width: calc(100vw - 450px); }
+#front-page-container > img {
+	max-width: 100%;
 }
-@media screen and (max-width: 800px) {
-	#front-page-container > img { width: 800px; }
-	#site-search-text { width: 352px; }
-}
+
 
 #cursor {
 	position: absolute;
 }
 
-#site-search-form {
-	display: inline;
-	height: calc(100vh - 360px);
-}
-
-#site-search-text {
-	height: 30px;
-	padding: 8px;
+form#npm-search {
+	position: relative;
+	height: 45px; /* 47 is how it displays in chrome*/
+	padding: 0;
+	margin: 0 1em;
+	border: 1px solid rgba(0,0,0,0.2);
 	border-radius: 2px;
-	border-width: 1px;
-	border-color: #bbb;
-	font-family: 'Source Sans Pro', 'Lucida Grande', 'Arial Narrow', sans-serif;
-	font-size: 18px;
-	outline: 0;
+	background: #fff;
+	text-align:left;
+	flex: 1 0 auto;
+	order: 2;
 }
 
-#site-search-text:hover, #site-search-text.hover {
+form#npm-search:hover {
+	border: 1px solid rgba(0,0,0,0.4);
+}
+
+div#site-search-container {
+	margin: 7px 80px 0 7px;
+}
+
+input[type=text]#site-search {
+	font-family: 'Source Sans Pro', 'Lucida Grande', sans-serif;
+	background: none;
+	border: 0;
+	outline: 0;
+	margin: 0;
+	padding: 0 2px 0 0;
+	height: 30px;
+	font-size: 18px;
+	font-weight: 300;
+	vertical-align: middle;
+	width: 100%;
+}
+input[type=text]#site-search:hover,
+input[type=text]#site-search.hover {
 	border-color: #000;
 }
 
-#site-search-submit {
-	margin-top: 0;
-	margin-left: -100px;
-	height: 47px;
-	width: 94px;
+input[type=submit]#site-search-submit {
+	position: absolute;
+	top: 0;
+	right: 0;
+	outline: 0;
+	height: 45px;
+	width: 46px;
 	text-indent: -9999em;
 	cursor: pointer;
 
-	padding: 0;
-	outline: 0;
 	border: 0;
+	padding: 0 35px;
+	margin: 0 0 4px;
+
 	border-left: 1px solid rgba(0,0,0,0.2);
 	border-radius: 1px;
 
@@ -92,7 +124,8 @@ header {
 	background-size: 16px 16px;
 }
 
-#site-search-submit:hover, #site-search-submit.hover {
+input[type=submit]#site-search-submit:hover,
+input[type=submit]#site-search-submit.hover {
 	background: #cb3837 url("./img/ico-search-hover.svg") no-repeat 50% 50%;
 	background-size: 16px 16px;
 }

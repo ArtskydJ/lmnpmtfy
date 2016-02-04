@@ -3,8 +3,8 @@ var qs = require('querystring')
 var killEvent = require('./kill-event.js')
 var selectAll = require('./select-all.js')
 
-var siteSearchText = document.getElementById('site-search-text')
-var siteSearchForm = document.getElementById('site-search-form')
+var siteSearchText = document.getElementById('site-search')
+var npmSearchForm = document.getElementById('npm-search')
 
 var hashExists = /#/.test(window.location.href)
 var query = window.location.search.slice(1)
@@ -16,7 +16,7 @@ if (!hashExists && searchText) {
 } else {
 	siteSearchText.value = searchText || ''
 
-	siteSearchForm.onsubmit = function onsubmit(ev) {
+	npmSearchForm.onsubmit = function onsubmit(ev) {
 		killEvent(ev)
 
 		var path = window.location.origin + window.location.pathname
