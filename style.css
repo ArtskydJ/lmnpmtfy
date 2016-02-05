@@ -24,8 +24,27 @@ nav {
 	background: #cb3837;
 	overflow: hidden;
 }
+nav > a {
+	display: inline-block;
+	line-height: 38px;
+	padding: 0 10px;
+	margin: 0;
+	color: rgba(255,255,255,0.8);
+	text-decoration: none;
+	background: #cb3837;
+	transition: all 0.1s;
+}
+nav > a:first-child {
+	float: left;
+}
+nav > a:hover {
+	color: #fff;
+}
+nav > a:hover:not(:first-child) {
+	background: #a42b2b;
+}
 
-body>header {
+header {
 	padding: 14px 20px 10px;
 	border-bottom: 1px solid #d3d3d3;
 	background: rgba(0,0,0,0.08);
@@ -54,7 +73,6 @@ body>header {
 	width:100%;
 	text-align: center;
 }
-
 #front-page-container > img {
 	max-width: 100%;
 }
@@ -76,7 +94,6 @@ form#npm-search {
 	flex: 1 0 auto;
 	order: 2;
 }
-
 form#npm-search:hover {
 	border: 1px solid rgba(0,0,0,0.4);
 }
