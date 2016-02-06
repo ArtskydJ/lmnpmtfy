@@ -94,6 +94,7 @@ form#npm-search {
 	flex: 1 0 auto;
 	order: 2;
 }
+form#npm-search.hover,
 form#npm-search:hover {
 	border: 1px solid rgba(0,0,0,0.4);
 }
@@ -114,10 +115,6 @@ input[type=text]#site-search {
 	font-weight: 300;
 	vertical-align: middle;
 	width: 100%;
-}
-input[type=text]#site-search:hover,
-input[type=text]#site-search.hover {
-	border-color: #000;
 }
 
 input[type=submit]#site-search-submit {
@@ -140,7 +137,6 @@ input[type=submit]#site-search-submit {
 	background: url("./img/ico-search.svg") no-repeat 50% 50%;
 	background-size: 16px 16px;
 }
-
 input[type=submit]#site-search-submit:hover,
 input[type=submit]#site-search-submit.hover {
 	background: #cb3837 url("./img/ico-search-hover.svg") no-repeat 50% 50%;

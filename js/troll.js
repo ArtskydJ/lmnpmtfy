@@ -1,8 +1,10 @@
 var rangeInterval = require('range-interval')
+var qs = require('querystring')
 var cursorElement = require('./element-cursor.js')
 var calculate = require('./calculate.js')
 
-var siteSearch = document.getElementById('site-search')
+var npmSearch = document.getElementById('npm-search')
+var siteSearchText = document.getElementById('site-search')
 var siteSearchSubmit = document.getElementById('site-search-submit')
 
 var cursorRepeatOpts = {
@@ -33,8 +35,8 @@ function moveCursorToInput(cb) {
 }
 
 function clickInput() {
-	siteSearch.focus()
-	siteSearch.className = 'hover' // This doesn't really show up...
+	siteSearchText.focus()
+	npmSearch.className = 'hover'
 }
 
 function typeInput(text, cb) {
@@ -44,7 +46,7 @@ function typeInput(text, cb) {
 		step: 1,
 		interval: 200
 	}, function stepInput(index) {
-		siteSearch.value = text.slice(0, index)
+		siteSearchText.value = text.slice(0, index)
 	}, cb)
 }
 
@@ -69,5 +71,5 @@ function init() {
 }
 
 function clickSearchButton(text) {
-	window.location.assign('https://npmjs.com/search?q=' + text)
+	window.location.assign('https://npmjs.com/search?' + qs.stringify({ q: text }))
 }
