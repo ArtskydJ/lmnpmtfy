@@ -1,81 +1,85 @@
 var rangeInterval = require('range-interval')
 var qs = require('querystring')
-var cursorElement = require('./element-cursor.js')
 
+var cursor = document.getElementById('cursor')
+var defaultCursor = document.getElementById('cursor-default')
+var pointerCursor = document.getElementById('cursor-pointer')
+var textCursor = document.getElementById('cursor-text')
 var npmSearch = document.getElementById('npm-search')
 var siteSearchText = document.getElementById('site-search')
 var siteSearchSubmit = document.getElementById('site-search-submit')
 
-var cursorRepeatOpts = {
-	start: 0,
-	end: 1,
-	step: 0.01,
-	interval: 10
-}
+var debugMode = window.location.hostname === 'localhost'
 
-module.exports = function troll(text) {
+var called = false
+module.exports = function troll(text, initialX, initialY) {
+	if (called) return
+	called = true
+
 	// If you go 'back' to this page, it won't troll you again
-	window.location.replace(window.location.href + '#')
+	if (!debugMode) {
+		window.location.replace(window.location.href + '#')
+	}
+	defaultCursor.className = 'show'
 
-	moveCursorToInput(function () {
-		siteSearchText.focus() // Not sure this does anything
+	// Initialize cursor in a random position
+	cursor.style.left = initialX
+	cursor.style.top = initialY
 
-		typeInput(text, function () {
-			moveCursorToSearchButton(function () {
-				setTimeout(clickSearchButton, 100, text)
-			})
-		})
-	})
+	// Move cursor to input box
+	setTimeout(function () {
+		cursor.style.left = '50vw'
+		cursor.style.top = '80px'
+	}, 10) // async
+
+	// Hover over the input box
+	setTimeout(function () {
+		npmSearch.className = 'hover'
+		defaultCursor.className = ''
+		textCursor.className = 'show'
+	}, 700)
+
+	// Click the input box, and start typing
+	setTimeout(function () {
+		// I don't think this does anything
+		siteSearchText.focus()
+
+		// Type the letters into the input box
+		typeInput(text, afterInputBoxIsPopulated)
+	}, 1000)
 }
 
-function moveCursorToInput(cb) {
-	var element = cursorElement()
+function afterInputBoxIsPopulated() {
+	// Move cursor to search button
+	cursor.style.left = 'calc(100vw - 80px)'
 
-	rangeInterval(cursorRepeatOpts, function (ratio) {
-		element.style.top = resolveRatio(ratio, 0, 80) + 'px'
-		element.style.left = resolveRatio(ratio, 0, 50) + 'vw'
+	// Hover on the search button
+	setTimeout(function () {
+		siteSearchSubmit.className = 'hover'
+		textCursor.className = ''
+		pointerCursor.className = 'show'
+	}, 600)
 
-		if (ratio > 0.7) {
-			npmSearch.className = 'hover'
-		}
-	}, cb)
+	// Redirect to npmjs.com
+	if (!debugMode) {
+		setTimeout(function clickSearchButton(text) {
+			var targetUrl = 'https://npmjs.com/search?' + qs.stringify({ q: text })
+			window.location.assign(targetUrl)
+		}, 1100)
+	}
 }
 
 function typeInput(text, cb) {
-	var textRepeatOpts = {
+	rangeInterval({
 		start: 0,
 		end: text.length,
 		step: 1,
 		interval: 200
-	}
-
-	rangeInterval(textRepeatOpts, function stepInput(index) {
+	}, function stepInput(index) {
 		siteSearchText.value = text.slice(0, index)
 	}, cb)
 }
 
-function moveCursorToSearchButton(cb) {
-	var element = cursorElement()
-
-	rangeInterval(cursorRepeatOpts, function stepCursor(ratio) {
-		element.style.left = calc(
-			resolveRatio(ratio, 0, -80) + 'px',
-			resolveRatio(ratio, 50, 100) + 'vw'
-		)
-		if (ratio > 0.95) {
-			siteSearchSubmit.className = 'hover'
-		}
-	}, cb)
-}
-
-function clickSearchButton(text) {
-	window.location.assign('https://npmjs.com/search?' + qs.stringify({ q: text }))
-}
-
-function calc(a, b) {
-	return 'calc(' + a + ' + ' + b + ')'
-}
-
-function resolveRatio(ratio, low, high) {
-	return Math.round(low + (high - low) * ratio)
+function rand100() {
+	return Math.floor(Math.random() * 100)
 }
