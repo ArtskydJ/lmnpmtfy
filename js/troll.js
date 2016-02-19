@@ -47,25 +47,25 @@ module.exports = function troll(text, initialX, initialY) {
 		// Type the letters into the input box
 		typeInput(text, afterInputBoxIsPopulated)
 	}, 1000)
-}
 
-function afterInputBoxIsPopulated() {
-	// Move cursor to search button
-	cursor.style.left = 'calc(100vw - 80px)'
+	function afterInputBoxIsPopulated() {
+		// Move cursor to search button
+		cursor.style.left = 'calc(100vw - 80px)'
 
-	// Hover on the search button
-	setTimeout(function () {
-		siteSearchSubmit.className = 'hover'
-		textCursor.className = ''
-		pointerCursor.className = 'show'
-	}, 600)
+		// Hover on the search button
+		setTimeout(function () {
+			siteSearchSubmit.className = 'hover'
+			textCursor.className = ''
+			pointerCursor.className = 'show'
+		}, 600)
 
-	// Redirect to npmjs.com
-	if (!debugMode) {
-		setTimeout(function clickSearchButton(text) {
-			var targetUrl = 'https://npmjs.com/search?' + qs.stringify({ q: text })
-			window.location.assign(targetUrl)
-		}, 1100)
+		// Redirect to npmjs.com
+		if (!debugMode) {
+			setTimeout(function clickSearchButton() {
+				var targetUrl = 'https://npmjs.com/search?' + qs.stringify({ q: text })
+				window.location.assign(targetUrl)
+			}, 1100)
+		}
 	}
 }
 
