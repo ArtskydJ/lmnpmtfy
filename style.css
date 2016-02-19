@@ -80,6 +80,13 @@ header {
 
 #cursor {
 	position: absolute;
+	transition: all 1s ease;
+}
+#cursor > img {
+	display: none;
+}
+#cursor > img.show {
+	display: inherit;
 }
 
 form#npm-search {

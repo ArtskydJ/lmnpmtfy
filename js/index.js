@@ -6,13 +6,17 @@ var selectAll = require('./select-all.js')
 var siteSearchText = document.getElementById('site-search')
 var npmSearchForm = document.getElementById('npm-search')
 
-var hashExists = /#/.test(window.location.href)
+var hashExists = window.location.href.indexOf('#') !== -1
 var query = window.location.search.slice(1)
 
 var searchText = qs.parse(query).q
 if (!hashExists && searchText) {
 	siteSearchText.value = ''
-	troll(searchText)
+
+	document.onmousemove = function (ev) {
+		troll(searchText, ev.clientX + 'px', ev.clientY + 'px')
+	}
+	setTimeout(troll, 1000, searchText, '50vw', '50vh')
 } else {
 	siteSearchText.value = searchText || ''
 
@@ -24,5 +28,6 @@ if (!hashExists && searchText) {
 			siteSearchText.value = path.replace(/\/?$/, '/?') + qs.stringify({ q: siteSearchText.value })
 		}
 		selectAll(siteSearchText)
+		siteSearchText.readOnly = true
 	}
 }
