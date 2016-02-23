@@ -62,7 +62,7 @@ module.exports = function troll(text, initialX, initialY) {
 		// Redirect to npmjs.com
 		if (!debugMode) {
 			setTimeout(function clickSearchButton() {
-				var targetUrl = 'https://npmjs.com/search?' + qs.stringify({ q: text })
+				var targetUrl = 'https://www.npmjs.com/search?' + qs.stringify({ q: text })
 				window.location.assign(targetUrl)
 			}, 1100)
 		}
